@@ -1,5 +1,5 @@
 import React from 'react'
-
+import Constant from '../utils/Constant'
 function Hero() {
   return (
     <div>
@@ -11,9 +11,8 @@ function Hero() {
         <strong className="font-extrabold text-primary sm:block"> Increase Security </strong>
       </h1>
 
-      <p className="mt-4 sm:text-xl/relaxed">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo tenetur fuga ducimus
-        numquam ea!
+      <p className="mt-4 sm:text-xl/relaxed text-gray-500">
+          {Constant.desc}
       </p>
 
       <div className="mt-8 flex flex-wrap justify-center gap-4">
