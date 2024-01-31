@@ -21,8 +21,18 @@ import {
       <Head />
       <Body>
         <h1>Hey whatsup {firstName}</h1>
+        <Text
+          style={{
+            textAlign: "center",
+            fontSize: 12,
+            color: "rgb(0,0,0, 0.7)",
+          }}
+        >
+          © 2024 | Team ZenithZest ,Republic of Vasai,Palghar-401202 
+          BHARAT | www.yelp.com
+        </Text>
       </Body>
-    </Html>
+      </Html>
   );
 
 

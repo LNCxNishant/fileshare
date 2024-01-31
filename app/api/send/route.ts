@@ -10,7 +10,7 @@ export async function POST(req: any) {
     const data = await resend.emails.send({
       from: 'zenithzest@resend.dev',
       to: ['nishantpatil8433@gmail.com'],
-      subject: 'Hello world',
+      subject: 'File Sahred from Fileshare',
       // text: "Its Text Time"
       react: EmailTemplate({ firstName: 'John' }),
     });
