@@ -19,10 +19,16 @@ const FileShareForm = ({ file, onPasswordSave }) => {
       fileType: file.fileType,
       shortUrl: file.shortUrl,
     };
-
-    GlobalApi.SendEmail(data).then(response => {
-      console.log(response.error);
+    GlobalApi.SendEmail(data)
+    .then(response => {
+      console.log(response);
+    })
+    .catch(error => {
+      console.error(error);
     });
+  
+
+    
   };
 
   return (
