@@ -1,9 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react'
 import { app } from '../../../../../FirebaseConfig';
-import { doc, getDoc, getFirestore } from 'firebase/firestore';
+import { doc, getDoc, getFirestore, updateDoc } from 'firebase/firestore';
 import { ArrowLeftSquare } from 'lucide-react';
 import FileInfo from './_components/FileInfo'
+import FileShareForm from './_components/FileShareForm'
 import Link from 'next/link'
 
 function FilePreview({params}) {
@@ -24,9 +25,14 @@ function FilePreview({params}) {
         // docSnap.data() will be undefined in this case
         console.log("No such document!");
       }
-      const onPasswordSave=(password)=>{
+      
 
       }
+      const onPasswordSave=async(password)=>{
+        const docRef=doc(db,"uploadedFile",params?.fileId)
+        await updateDoc(docRef,{
+          password:password
+        });
 
        
     }
@@ -37,8 +43,8 @@ function FilePreview({params}) {
     </Link>
     <div className='grid grid-cols-1 md:grid-cols-2 mt-5'>
       <FileInfo file={file} />
-      {/* <FileShareform file={file}
-      onPasswordSave={(password)=>onPasswordSave(password)}/> */}
+      <FileShareForm file={file}
+      onPasswordSave={(password)=>onPasswordSave(password)}/>
 
 
     </div>

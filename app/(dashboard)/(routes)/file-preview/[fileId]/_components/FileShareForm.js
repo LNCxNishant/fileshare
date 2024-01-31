@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { Copy } from 'lucide-react';
-import GlobalApi from '../../../../../utils';
+// import GlobalApi from '../../../../../utils';
 
 const FileShareForm = ({ file, onPasswordSave }) => {
   const [isPasswordEnable, setIsPasswordEnable] = useState(true);
@@ -20,19 +20,19 @@ const FileShareForm = ({ file, onPasswordSave }) => {
       shortUrl: file.shortUrl,
     };
 
-    GlobalApi.SendEmail(data).then(response => {
-      console.log(response);
-    });
+    // GlobalApi.SendEmail(data).then(response => {
+    //   console.log(response);
+    // });
   };
 
   return (
     <div className='flex flex-col gap-2'>
       <div>
-        <label className='text-[14px] text-gray-500 font-semibold'>Короткий URL</label>
+        <label className='text-[14px] text-gray-500 font-semibold'> URL</label>
         <div className='flex justify-between gap-2 p-2 border rounded-md'>
           <input
             type="text"
-            value={file.shortUrl}
+            value={file?.shortUrl}
             disabled
             className='w-full disabled:text-gray-500 bg-transparent outline-none'
           />
@@ -42,7 +42,7 @@ const FileShareForm = ({ file, onPasswordSave }) => {
 
       <div className='flex gap-3 mt-5'>
         <input type="checkbox" onChange={(e) => setIsPasswordEnable(e.target.checked)} />
-        <label>Включить пароль?</label>
+        <label>Password</label>
       </div>
 
       {isPasswordEnable ? (
@@ -59,13 +59,13 @@ const FileShareForm = ({ file, onPasswordSave }) => {
             disabled={password.length < 3}
             onClick={() => onPasswordSave(password)}
           >
-            Сохранить
+            Next
           </button>
         </div>
       ) : null}
 
       <div className='w-full h-auto border rounded-md p-2 mt-5'>
-        <label className='text-[14px] text-gray-500 font-semibold'>Отправить файл на Почту</label>
+        <label className='text-[14px] text-gray-500 font-semibold'>Receiver's Email</label>
         <div className='border rounded-md w-full p-2'>
           <input
             type='email'
@@ -76,9 +76,9 @@ const FileShareForm = ({ file, onPasswordSave }) => {
         </div>
         <button
           className='w-full p-2 bg-primary text-white rounded-md disabled:bg-gray-300 hover:bg-blue-600 mt-2'
-          onClick={sendEmail}
+          // onClick={sendEmail}
         >
-          Отправить
+          Send
         </button>
       </div>
     </div>
