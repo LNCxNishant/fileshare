@@ -5,7 +5,7 @@ import { Copy } from 'lucide-react';
 import GlobalApi from './../../../../../utils/GlobalApi';
 
 const FileShareForm = ({ file, onPasswordSave }) => {
-  const [isPasswordEnable, setIsPasswordEnable] = useState(true);
+  const [isPasswordEnable, setIsPasswordEnable] = useState(false);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const { user } = useUser();
@@ -21,7 +21,7 @@ const FileShareForm = ({ file, onPasswordSave }) => {
     };
 
     GlobalApi.SendEmail(data).then(response => {
-      console.log(response);
+      console.log(response.error);
     });
   };
 

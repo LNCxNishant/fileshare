@@ -11,7 +11,7 @@ export async function POST() {
       subject: 'Hello world',
       react: EmailTemplate({ firstName: 'John' }),
     });
-
+    console.log("Nahi ho hava bhai")
     return Response.json(data);
   } catch (error) {
     return Response.json({ error });
