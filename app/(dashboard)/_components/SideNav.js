@@ -31,15 +31,13 @@ const [activeIndex ,setActiveIndex]=useState(0);
     
     <div className='shadow-sm border-r h-full'>
         <div className='px-2 py-5'>
-        <Image src='/logo.svg' className='hidden md:inline' width={150} height={100}/>
-        
-
+            <Image src='/logo.svg' className='hidden md:inline' width={150} height={100}/>
         </div>
-        <div className='flex flex-col float-left px-2 py-3 mx-2'>
+        <div className='flex flex-col float-left py-3 rounded-lg w-full'>
         {menuList.map((item,index)=>(
             <Link href={item.path}>
-                <button key={index} className={`flex gap-2 p-4 px-0 hover:bg-gray-300 w-full
-                    ${activeIndex==index?'bg-blue-50 text-primary':null} `}
+                <button key={index} className={`flex gap-2 py-4 px-5 hover:bg-gray-300 w-full rounded-lg
+                    ${activeIndex==index?'bg-blue-50 text-primary ':null} `}
                     onClick={()=>setActiveIndex(index)}>
                         <item.icon />
                             <h2>
