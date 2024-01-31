@@ -14,10 +14,10 @@ const FileShareForm = ({ file, onPasswordSave }) => {
     const data = {
       emailToSend: email,
       userName: user?.fullName,
-      fileName: file.fileName,
-      fileSize: file.fileSize,
-      fileType: file.fileType,
-      shortUrl: file.shortUrl,
+      fileName: file?.fileName,
+      fileSize: file?.fileSize,
+      fileType: file?.fileType,
+      shortUrl: file?.shortUrl,
     };
 
     GlobalApi.SendEmail(data).then(response => {
@@ -77,9 +77,9 @@ const FileShareForm = ({ file, onPasswordSave }) => {
         </div>
         <button
           className='w-full p-2 bg-primary text-white rounded-md disabled:bg-gray-300 hover:bg-blue-600 mt-2'
-          onClick={sendEmail}
+          onClick={()=>sendEmail()}
         >
-          Send
+          Send Email
         </button>
       </div>
     </div>
