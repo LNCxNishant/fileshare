@@ -1,13 +1,13 @@
+"use client"
 import React, { useState } from 'react';
 import { useUser } from '@clerk/nextjs';
 import { Copy } from 'lucide-react';
-// import GlobalApi from '../../../../../utils';
+import GlobalApi from './../../../../../utils/GlobalApi';
 
 const FileShareForm = ({ file, onPasswordSave }) => {
   const [isPasswordEnable, setIsPasswordEnable] = useState(true);
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
-
   const { user } = useUser();
 
   const sendEmail = () => {
@@ -20,9 +20,9 @@ const FileShareForm = ({ file, onPasswordSave }) => {
       shortUrl: file.shortUrl,
     };
 
-    // GlobalApi.SendEmail(data).then(response => {
-    //   console.log(response);
-    // });
+    GlobalApi.SendEmail(data).then(response => {
+      console.log(response);
+    });
   };
 
   return (
@@ -52,6 +52,7 @@ const FileShareForm = ({ file, onPasswordSave }) => {
               type='password'
               className='disabled:text-gray-500 bg-transparent outline-none'
               onChange={(e) => setPassword(e.target.value)}
+              value={password} 
             />
           </div>
           <button
@@ -76,7 +77,7 @@ const FileShareForm = ({ file, onPasswordSave }) => {
         </div>
         <button
           className='w-full p-2 bg-primary text-white rounded-md disabled:bg-gray-300 hover:bg-blue-600 mt-2'
-          // onClick={sendEmail}
+          onClick={sendEmail}
         >
           Send
         </button>
