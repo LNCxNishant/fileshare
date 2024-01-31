@@ -6,6 +6,9 @@ const FileInfo = ({ file }) => {
   useEffect(() => {
     setFileType(file?.fileType.split('/')[0]);
   }, [file]);
+  if (!file) {
+    return null; // Add a check to handle the case when file is undefined
+  }
 
   return (
     <div className='text-center border flex items-center justify-center m-4 flex-col p-2 rounded-md border-blue-200'>

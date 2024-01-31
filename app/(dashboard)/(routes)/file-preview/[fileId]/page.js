@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 import { app } from '../../../../../FirebaseConfig';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
 import { ArrowLeftSquare } from 'lucide-react';
+import FileInfo from './_components/FileInfo'
+import Link from 'next/link'
 
 function FilePreview({params}) {
   const db = getFirestore(app);
